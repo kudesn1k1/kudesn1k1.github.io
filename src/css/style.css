@@ -1,12 +1,15 @@
 body {
+    width: 100%;
+    height: 100%;
     font-family: Arial, sans-serif;
 }
 
 nav {
-
     width: 100%;
     height: 60px;
     background: #234052;
+    position: fixed;
+    z-index: 10;
 }
 
 .clear {
@@ -19,6 +22,19 @@ nav {
     line-height: 60px;
     margin-left: 388px;
     float: left;
+    -webkit-animation: coming 1.5s ease;
+    -o-animation: coming 1.5s ease;
+    animation: coming 1.5s ease;
+}
+
+@keyframes coming {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
 .menu {
@@ -31,24 +47,90 @@ nav {
     line-height: 60px;
     margin-right: 40px;
     text-transform: uppercase;
+    -webkit-animation: topshift 0.4s ease forwards;
+    -o-animation: topshift 0.4s ease forwards;
+    animation: topshift 0.4s ease forwards;
+    opacity: 0;
+}
+
+@keyframes topshift {
+    from {
+        opacity: 0;
+        margin-top: -80px
+    }
+
+    to {
+        opacity: 1;
+        margin-top: 0px;
+    }
+}
+
+.menu li:nth-child(2) {
+    animation-delay: 0.3s
+}
+
+.menu li:nth-child(3) {
+    animation-delay: 0.6s
+}
+
+.menu li:nth-child(4) {
+    animation-delay: 0.9s
+}
+
+.menu li:nth-child(5) {
+    animation-delay: 1.2s
+}
+
+.menu li:nth-child(6) {
+    animation-delay: 1.5s
 }
 
 .menu a {
     font-size: 16px;
     color: #fff;
+    transition: all 0.2s;
+    transform: scale(1);
+    display: inline-block;
 }
 
-.main {
+.menu li a:hover {
+    color: #ed7600;
+}
+
+.menu li a:active {
+    transform: scale(1.1);
+}
+
+.title_class {
     width: 100%;
-    height: calc(100% - 60px);
+    height: 100%;
     background: url(../img/%D0%9F%D0%B0%D1%80%D0%B5%D0%BD%D1%8C.png) 90% 100%/ auto 85% no-repeat, url(../img/%D1%84%D0%BE%D0%BD.png) center/cover no-repeat;
 }
 
 .title {
     float: left;
     color: #1a3649;
-    margin: 404px 0px 0px 432px;
+    margin: 432px 0px 0px 404px;
     text-align: center;
+    -webkit-animation: leftshift 1s ease forwards;
+    -o-animation: leftshift 1s ease forwards;
+    animation: leftshift 1s ease forwards;
+    -webkit-animation-delay: 1.5s;
+    -o-animation-delay: 1.5s;
+    animation-delay: 1.5s;
+    opacity: 0;
+}
+
+@keyframes leftshift {
+    from {
+        margin-left: 0px;
+        opacity: 0;
+    }
+
+    to {
+        margin-left: 404px;
+        opacity: 1;
+    }
 }
 
 .title h1 {
@@ -73,13 +155,23 @@ nav {
     font-size: 13px;
     margin: 50px 14px 0px 14px;
     cursor: pointer;
+    transition: all 0.2s;
+}
+
+.title input:hover {
+    background: #234052;
+    color: white;
+}
+
+.title input:active {
+    transform: scale(1.1);
 }
 
 .about_me {
     height: 717px;
     width: 100%;
     float: left;
-    text-align: center;
+    text-align: left;
     color: #3f495a;
     font-family: Calibri, sans-serif;
     font-size: 15px;
@@ -88,6 +180,17 @@ nav {
 .about_me_container {
     margin: auto;
     width: 740px;
+}
+
+.element-animation {
+    transform: translateY(100px);
+    opacity: 0;
+}
+
+.element-animation.element-show {
+    opacity: 1;
+    transform: translateY(0px);
+    transition: all 1s;
 }
 
 .about_me h2 {
@@ -104,15 +207,27 @@ nav {
     background: #ed7600;
     width: 70px;
     height: 4px;
-    margin: 30px auto;
+    margin: 30px auto 60px auto;
 }
 
 .about_me img {
     display: block;
     margin: 30px auto;
+    transition: all 0.5s;
+    border-radius: 50%;
+    width: 205px;
+    height: 205px;
+}
+
+.about_me img:hover {
+    transform: scale(1.2);
+    border: 1px solid #efeff8;
+
 }
 
 .about_me input {
+    display: block;
+    margin: auto;
     color: #6f707e;
     margin-top: 37px;
     padding: 13px 12px 13px 33px;
@@ -121,6 +236,16 @@ nav {
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
+    transition: all 0.2s;
+}
+
+.about_me input:hover {
+    background: url(../img/%D0%B8%D0%BA%D0%BE%D0%BD%D0%BA%D0%B01.png) 11px 50%/auto 14px no-repeat #234052;
+    color: white;
+}
+
+.about_me input:active {
+    transform: scale(1.1);
 }
 
 .skills {
@@ -128,7 +253,6 @@ nav {
     height: 525px;
     float: left;
     background: url(../img/skills-bg.png);
-    text-align: center;
     font-family: Calibri, sans-serif;
 }
 
@@ -157,10 +281,26 @@ nav {
     text-align: center;
     color: #3f495a;
     font-size: 15px;
+
+}
+.skill:nth-child(4) {
+    transition-delay: 0.1s;
 }
 
+.skill:nth-child(5) {
+    transition-delay: 0.2s;
+}
+
+.skill:nth-child(6) {
+    transition-delay: 0.3s;
+}
+.skill:hover {
+    transform: scale(1.1);
+    transition: all 0.2s;
+    transition-delay: 0s;
+}
 .skill h3 {
-    color: #cf7600;
+    color: #ed7600;
     font-size: 17px;
     font-weight: bold;
     text-align: center;
@@ -182,7 +322,6 @@ nav {
 
 .keys h2 {
     margin-top: 110px;
-    text-align: center;
     font-size: 24px;
     color: #384354;
     font-weight: bold;
@@ -236,7 +375,7 @@ nav {
     margin-bottom: 10px;
 }
 
-.descr_left input {
+/*.descr_left input {
     margin-top: 25px;
     font-size: 20px;
     color: white;
@@ -247,7 +386,111 @@ nav {
     height: 45px;
     text-transform: uppercase;
     cursor: pointer;
+}*/
+.custom-btn {
+    width: 200px;
+    height: 45px;
+    color: #fff;
+    margin-top: 25px;
+    border-radius: 5px;
+    padding: 10px 25px;
+    font-size: 20px;
+    text-transform: uppercase;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5),
+        7px 7px 20px 0px rgba(0, 0, 0, .1),
+        4px 4px 5px 0px rgba(0, 0, 0, .1);
+    outline: none;
+    background: linear-gradient(0deg, rgba(0, 212, 255, 1) 0%, rgba(0, 182, 174, 1) 35%, rgba(0, 150, 182, 1) 100%);
+    line-height: 42px;
+    padding: 0;
+    border: none;
+    z-index: 1;
 }
+
+.custom-btn span {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.custom-btn:before,
+.custom-btn:after {
+    position: absolute;
+    content: "";
+    right: 0;
+    bottom: 0;
+    background: #0096b6;
+    box-shadow:
+        -7px -7px 20px 0px rgba(255, 255, 255, .9),
+        -4px -4px 5px 0px rgba(255, 255, 255, .9),
+        7px 7px 20px 0px rgba(0, 0, 0, .2),
+        4px 4px 5px 0px rgba(0, 0, 0, .3);
+    transition: all 0.3s ease;
+}
+
+.custom-btn:before {
+    height: 0%;
+    width: 2px;
+}
+
+.custom-btn:after {
+    width: 0%;
+    height: 2px;
+}
+
+.custom-btn:hover {
+    color: #0096b6;
+    background: transparent;
+}
+
+.custom-btn:hover:before {
+    height: 100%;
+}
+
+.custom-btn:hover:after {
+    width: 100%;
+}
+
+.custom-btn span:before,
+.custom-btn span:after {
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 0;
+    background: #0096b6;
+    box-shadow:
+        -7px -7px 20px 0px rgba(255, 255, 255, .9),
+        -4px -4px 5px 0px rgba(255, 255, 255, .9),
+        7px 7px 20px 0px rgba(0, 0, 0, .2),
+        4px 4px 5px 0px rgba(0, 0, 0, .3);
+    transition: all 0.3s ease;
+}
+
+.custom-btn span:before {
+    width: 2px;
+    height: 0%;
+}
+
+.custom-btn span:after {
+    height: 2px;
+    width: 0%;
+}
+
+.custom-btn span:hover:before {
+    height: 100%;
+}
+
+.custom-btn span:hover:after {
+    width: 100%;
+}
+
+
 
 .calc {
     height: 825px;
@@ -341,6 +584,24 @@ nav {
     display: inline-block;
     width: 260px;
     margin: 0px;
+    transition: all 0.1s;
+}
+
+.item:nth-child(4) {
+    transition-delay: 0.1s;
+}
+
+.item:nth-child(5) {
+    transition-delay: 0.2s;
+}
+
+.item:nth-child(6) {
+    transition-delay: 0.3s;
+}
+
+.item:hover {
+    transform: scale(1.2);
+    transition: all 0.2s;
 }
 
 .item img {
@@ -393,80 +654,125 @@ nav {
     margin-top: 50px;
     margin-right: 14px;
 }
-.comms span{
+
+.comms span {
     font-weight: bold;
 }
-.contacts{
+
+.contacts {
     height: 808px;
     width: 100%;
     background: url(../img/%D0%A4%D0%BE%D0%BD2.png);
     float: left;
 }
-.contacts_container{
+
+.contacts_container {
     text-align: center;
     width: 860px;
     height: 808px;
     margin: auto;
     color: #fff;
-    
+
 }
-.contacts_container h2{
+
+.contacts_container h2 {
     margin-top: 105px;
     font-size: 24px;
     color: #fff;
     font-weight: 600;
 }
+
 .contacts_container hr {
     background: #ed7600;
     width: 70px;
     height: 4px;
     margin: 30px auto 35px auto;
 }
-.contacts_container p{
+
+.contacts_container p {
     margin-bottom: 50px;
 }
-.inf{
+
+.inf {
     float: left;
     width: 280px;
     height: 110px;
 }
-.inf img{
+
+.inf img {
     margin-bottom: 17px;
 }
-.contacts_container h3{
+
+.contacts_container h3 {
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 45px;
 }
-.contacts_container textarea{
+
+.contacts_container textarea {
     width: 740px;
-    margin-bottom: 30px;
+    height: 94px;
+    margin-bottom: 28px;
     padding: 10px 10px;
 }
-.contacts_container form{
+
+.contacts_container form {
     width: 740px;
     margin: auto;
     opacity: 0.8;
 }
-.cont_inputs input{
+
+.cont_inputs input {
     width: 353px;
     height: 35px;
     padding-left: 10px;
 }
-.contacts_container form .submit{
-    background: none;
-    font-size: 20px;
+
+.contacts_container form .button {
+    width: 125px;
+    height: 46px;
+    background: #334052;
+    font-size: 15px;
     color: #fff;
-    opacity: 1.0;
     border: 3px solid #fff;
     border-radius: 5px;
-    padding: 10px 15px;
+    padding: 10px 10px;
     cursor: pointer;
+    transition: all 0.2s;
+    position: relative;
+    z-index: 2;
 }
-#name{
-    margin:0px 30px 15px 0px;
+
+.contacts_container form .button:hover {
+    background: #fff;
+    color: black;
 }
-footer{
+
+.contacts_container form .button_hid {
+    width: 125px;
+    height: 46px;
+    background: none;
+    font-size: 15px;
+    color: #fff;
+    border: 3px solid #fff;
+    border-radius: 5px;
+    padding: 10px 10px;
+    cursor: pointer;
+    z-index: 1;
+    position: absolute;
+    top: 502px;
+    left: 368px;
+}
+
+.contacts_container form .button:active {
+    opacity: 0;
+}
+
+#name {
+    margin: 0px 30px 15px 0px;
+}
+
+footer {
     text-align: center;
     color: #fff;
     height: 95px;
@@ -474,9 +780,11 @@ footer{
     background: #234052;
     float: left;
 }
-footer p{
+
+footer p {
     margin-top: 40px;
 }
+
 .map img {
     width: 100%;
     height: auto;
