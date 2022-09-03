@@ -4,6 +4,131 @@ body {
     font-family: Arial, sans-serif;
 }
 
+.preloader {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #8EC5FC;
+    background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+    z-index: 1000;
+}
+
+.preloader_row {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -50px;
+    width: 100px;
+    height: 00px;
+    text-align: center;
+    -webkit-animation: preloader-rotate 2s infinite linear;
+    -o-animation: preloader-rotate 2s infinite linear;
+    animation: preloader-rotate 2s infinite linear;
+}
+
+.preloader_item {
+    position: absolute;
+    display: inline-block;
+    top: 0;
+    background: #337ab7;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    -webkit-animation: preloader-bounce 2s infinite ease;
+    -o-animation: preloader-bounce 2s infinite ease;
+    animation: preloader-bounce 2s infinite ease-in-out;
+}
+
+.preloader_item:last-child {
+    top: auto;
+    bottom: 0;
+    animation-delay: -1s;
+}
+
+@-webkit-keyframes preloader-rotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@-o-keyframes preloader-rotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@-moz-keyframes preloader-rotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes preloader-rotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes preloader-bounce {
+
+    0%,
+    100% {
+        transform: scale(0.1);
+    }
+
+    50% {
+        transform: scale(1);
+    }
+}
+
+@-o-keyframes preloader-bounce {
+
+    0%,
+    100% {
+        transform: scale(0.1);
+    }
+
+    50% {
+        transform: scale(1);
+    }
+}
+
+@-moz-keyframes preloader-bounce {
+
+    0%,
+    100% {
+        transform: scale(0.1);
+    }
+
+    50% {
+        transform: scale(1);
+    }
+}
+
+@keyframes preloader-bounce {
+
+    0%,
+    100% {
+        transform: scale(0.1);
+    }
+
+    50% {
+        transform: scale(1);
+    }
+}
+
+.loaded_hiding .preloader {
+    transition: 0.3s opacity;
+    opacity: 0;
+}
+
+.loaded .preloader {
+    display: none;
+}
+
 nav {
     width: 100%;
     height: 60px;
@@ -252,7 +377,8 @@ nav {
     width: 100%;
     height: 525px;
     float: left;
-    background: url(../img/skills-bg.png);
+    background: url(../img/skills-bg.png) center/3700px auto no-repeat;
+    background-attachment: fixed;
     font-family: Calibri, sans-serif;
 }
 
@@ -283,6 +409,7 @@ nav {
     font-size: 15px;
 
 }
+
 .skill:nth-child(4) {
     transition-delay: 0.1s;
 }
@@ -294,11 +421,13 @@ nav {
 .skill:nth-child(6) {
     transition-delay: 0.3s;
 }
+
 .skill:hover {
     transform: scale(1.1);
     transition: all 0.2s;
     transition-delay: 0s;
 }
+
 .skill h3 {
     color: #ed7600;
     font-size: 17px;
@@ -375,18 +504,6 @@ nav {
     margin-bottom: 10px;
 }
 
-/*.descr_left input {
-    margin-top: 25px;
-    font-size: 20px;
-    color: white;
-    background: #00b6ae;
-    border: 2px solid #00b6ae;
-    border-radius: 5px;
-    width: 200px;
-    height: 45px;
-    text-transform: uppercase;
-    cursor: pointer;
-}*/
 .custom-btn {
     width: 200px;
     height: 45px;
@@ -506,22 +623,43 @@ nav {
     color: #384354;
 }
 
-.option {
+.option,
+.option1 {
     text-align: left;
-    /* margin-left: 495px;
-    margin-top: 50px;*/
     margin: 50px auto 0px auto;
     width: 890px;
 }
 
-.option h3 {
+.option.element-animation {
+    transform: translateX(200px);
+    opacity: 0;
+}
+
+.option.element-show {
+    transform: translateX(0px);
+    opacity: 1;
+}
+
+.option1.element-animation {
+    transform: translateX(-200px);
+    opacity: 0;
+}
+
+.option1.element-show {
+    transform: translateX(0px);
+    opacity: 1;
+}
+
+.option h3,
+.option1 h3 {
     font-size: 20px;
     font-weight: bold;
     margin-bottom: 22px;
     color: #172437;
 }
 
-.option select {
+.option select,
+.option1 select {
     width: 890px;
     height: 60px;
     padding-left: 24px;
@@ -557,7 +695,8 @@ nav {
     height: 500px;
     float: left;
     text-align: center;
-    background: url(../img/aoy1.png);
+    background: url(../img/aoy1.png) center/3700px auto no-repeat;
+    background-attachment: fixed;
 }
 
 .stat_container {
@@ -644,6 +783,11 @@ nav {
     width: 70px;
     height: 4px;
     margin: 30px auto 58px auto;
+}
+
+.comms img:hover {
+    transition: all 0.2s;
+    transform: scale(1.2);
 }
 
 .comms p {
