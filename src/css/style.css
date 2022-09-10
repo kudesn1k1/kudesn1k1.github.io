@@ -1,9 +1,15 @@
-body {
-    width: 100%;
-    height: 100%;
-    font-family: Arial, sans-serif;
+@font-face {
+	font-family: 'Franklin Gothic Medium';
+	src: url('../fonts/framd.eot');
+	src: local('☺'), url('../fonts/framd.woff') format('woff'), url('../fonts/framd.ttf') format('truetype'), url('../fonts/framd.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
 }
 
+body {
+    
+    width: 100%;
+}
 .preloader {
     position: fixed;
     left: 0;
@@ -22,7 +28,7 @@ body {
     margin-top: -50px;
     margin-left: -50px;
     width: 100px;
-    height: 00px;
+    height: 100px;
     text-align: center;
     -webkit-animation: preloader-rotate 2s infinite linear;
     -o-animation: preloader-rotate 2s infinite linear;
@@ -129,6 +135,26 @@ body {
     display: none;
 }
 
+.element-animation {
+    transform: translateY(100px);
+    opacity: 0;
+}
+
+.element-animation.element-show {
+    opacity: 1;
+    transform: translateY(0px);
+    transition: all 1s;
+}
+.logo {
+    color: #fff;
+    font-size: 30px;
+    line-height: 60px;
+    -webkit-animation: coming 1.5s ease;
+    -o-animation: coming 1.5s ease;
+    animation: coming 1.5s ease;
+    font-family: "Franklin Gothic Medium", sans-serif;
+}
+
 nav {
     width: 100%;
     height: 60px;
@@ -137,34 +163,8 @@ nav {
     z-index: 10;
 }
 
-.clear {
-    clear: left;
-}
-
-.logo {
-    color: #fff;
-    font-size: 30px;
-    line-height: 60px;
-    margin-left: 388px;
-    float: left;
-    -webkit-animation: coming 1.5s ease;
-    -o-animation: coming 1.5s ease;
-    animation: coming 1.5s ease;
-}
-
-@keyframes coming {
-    0% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 1;
-    }
-}
-
 .menu {
     float: left;
-    padding-left: 430px;
 }
 
 .menu li {
@@ -172,6 +172,7 @@ nav {
     line-height: 60px;
     margin-right: 40px;
     text-transform: uppercase;
+    list-style-type: none;
     -webkit-animation: topshift 0.4s ease forwards;
     -o-animation: topshift 0.4s ease forwards;
     animation: topshift 0.4s ease forwards;
@@ -210,33 +211,44 @@ nav {
     animation-delay: 1.5s
 }
 
+.menu a:hover {
+    color: #ed7600;
+}
+
+.menu a:active {
+    transform: scale(1.1);
+}
+
 .menu a {
-    font-size: 16px;
+    font-size: 15px;
     color: #fff;
     transition: all 0.2s;
     transform: scale(1);
     display: inline-block;
+    text-decoration: none;
+    font-weight: 300
+    font-family: "Franklin Gothic Medium", sans-serif;
 }
 
-.menu li a:hover {
-    color: #ed7600;
+.white-btn:visited {
+    color: #fff;
+
 }
 
-.menu li a:active {
-    transform: scale(1.1);
-}
-
-.title_class {
+main {
     width: 100%;
     height: 100%;
-    background: url(../img/%D0%9F%D0%B0%D1%80%D0%B5%D0%BD%D1%8C.png) 90% 100%/ auto 85% no-repeat, url(../img/%D1%84%D0%BE%D0%BD.png) center/cover no-repeat;
+}
+
+.title_row {
+    height: 1000px;
 }
 
 .title {
-    float: left;
+    font-family: "Franklin Gothic Medium", sans-serif;
     color: #1a3649;
-    margin: 432px 0px 0px 404px;
     text-align: center;
+    width: 100%;
     -webkit-animation: leftshift 1s ease forwards;
     -o-animation: leftshift 1s ease forwards;
     animation: leftshift 1s ease forwards;
@@ -248,19 +260,26 @@ nav {
 
 @keyframes leftshift {
     from {
-        margin-left: 0px;
+        margin-left: -500px;
         opacity: 0;
     }
 
     to {
-        margin-left: 404px;
+        margin-left: 0px;
         opacity: 1;
     }
 }
 
 .title h1 {
-    font-size: 60px;
+    font-size: 72px;
     font-weight: bold;
+    font-weight: 600;
+}
+
+.title_section {
+    width: 100%;
+    
+    background: url(../img/%D0%9F%D0%B0%D1%80%D0%B5%D0%BD%D1%8C.png) 90% 100%/ auto 85% no-repeat, url(../img/%D1%84%D0%BE%D0%BD.png) center/cover no-repeat;
 }
 
 .title h4 {
@@ -291,70 +310,43 @@ nav {
 .title input:active {
     transform: scale(1.1);
 }
-
-.about_me {
-    height: 717px;
-    width: 100%;
-    float: left;
-    text-align: left;
-    color: #3f495a;
-    font-family: Calibri, sans-serif;
-    font-size: 15px;
-}
-
-.about_me_container {
-    margin: auto;
-    width: 740px;
-}
-
-.element-animation {
-    transform: translateY(100px);
-    opacity: 0;
-}
-
-.element-animation.element-show {
-    opacity: 1;
-    transform: translateY(0px);
-    transition: all 1s;
-}
-
 .about_me h2 {
-    margin: 110px auto 2px auto;
-    ;
-    width: 100px;
-    text-align: center;
-    font-size: 24px;
+    font-family: "Franklin Gothic Medium", sans-serif;
+    margin-top: 110px;
+    font-size: 32px;
     color: #1b2d42;
-    font-weight: 600;
+    font-weight: 200;
 }
 
 .about_me hr {
     background: #ed7600;
+    border: none;
     width: 70px;
     height: 4px;
-    margin: 30px auto 60px auto;
+    margin: 32px auto 60px auto;
+    opacity: 1;
 }
-
 .about_me img {
-    display: block;
-    margin: 30px auto;
-    transition: all 0.5s;
     border-radius: 50%;
-    width: 205px;
-    height: 205px;
 }
 
 .about_me img:hover {
+    transition: all 0.5s;
     transform: scale(1.2);
     border: 1px solid #efeff8;
 
 }
-
+.about_me p{
+    font-family: Calibri, sans-serif;
+    color: #38485b;
+}
 .about_me input {
+    font-family: "Franklin Gothic Medium";
     display: block;
     margin: auto;
     color: #6f707e;
     margin-top: 37px;
+    margin-bottom: 95px;
     padding: 13px 12px 13px 33px;
     background: url(../img/%D0%B8%D0%BA%D0%BE%D0%BD%D0%BA%D0%B0.png) 11px 50%/auto 14px no-repeat;
     border: 2px solid #6f707e;
@@ -372,53 +364,83 @@ nav {
 .about_me input:active {
     transform: scale(1.1);
 }
+@media(max-width:991px) {
 
-.skills {
-    width: 100%;
-    height: 525px;
-    float: left;
+    .title,
+    .title h4,
+    .title input {
+        color: #fff;
+        position: relative;
+        z-index: 5;
+    }
+
+    .title input {
+        border: 2px solid #fff;
+        border-radius: 5px;
+    }
+
+    .title input:active {
+        border: 2px solid #6d7682;
+    }
+
+    .title_section {
+        position: relative;
+    }
+
+    .title_section::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+}
+.skills{
     background: url(../img/skills-bg.png) center/3700px auto no-repeat;
     background-attachment: fixed;
-    font-family: Calibri, sans-serif;
 }
-
 .skills h2 {
     margin-top: 107px;
-    text-align: center;
-    font-size: 24px;
+    font-size: 32px;
     color: #263244;
-    font-weight: 600;
+    font-weight: 200;
+    font-family: "Franklin Gothic Medium", sans-serif;
 }
-
 .skills hr {
+    border: none;
+    opacity: 1;
     background: #ed7600;
     width: 70px;
     height: 4px;
-    margin: 30px auto 105px auto;
+    margin: 30px auto 0px auto;
 }
-
-#lap {
-    margin-left: 365px;
-}
-
 .skill {
     float: left;
-    width: 294px;
+    width: 295px;
     text-align: center;
     color: #3f495a;
     font-size: 15px;
+    font-family: Calibri, sans-serif;
 
 }
-
-.skill:nth-child(4) {
+.skill h3 {
+    color: #ed7600;
+    font-size: 17px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    font-family: Bahnschrift, sans-serif;
+}
+.skill:nth-child(2) {
     transition-delay: 0.1s;
 }
 
-.skill:nth-child(5) {
+.skill:nth-child(3) {
     transition-delay: 0.2s;
 }
 
-.skill:nth-child(6) {
+.skill:nth-child(4) {
     transition-delay: 0.3s;
 }
 
@@ -427,83 +449,49 @@ nav {
     transition: all 0.2s;
     transition-delay: 0s;
 }
-
-.skill h3 {
-    color: #ed7600;
-    font-size: 17px;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
 .skill img {
     display: block;
     margin: 0px auto 40px auto;
     height: 40px;
 }
-
-.keys {
-    height: 1180px;
-    width: 100%;
-    float: left;
-    text-align: center;
-}
-
 .keys h2 {
     margin-top: 110px;
-    font-size: 24px;
+    font-size: 35px;
     color: #384354;
+    font-weight: 200;
+    font-family: "Franklin Gothic Medium", sans-serif;
+}
+.keys h3 {
     font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #384354;
+    font-family: "Franklin Gothic Medium", sans-serif;
+    font-weight: 200;
 }
 
+.keys h4 {
+    font-weight: bold;
+    font-size: 23px;
+    margin-bottom: 10px;
+    color: #384354;
+    font-family: "Franklin Gothic Medium", sans-serif;
+    font-weight: 200;
+}
 .keys hr {
+    border: none;
+    opacity: 1;
     background: #ed7600;
     width: 70px;
     height: 4px;
     margin: 30px auto 40px auto;
 }
-
-.keys img {
-    display: block;
-    margin: 30px auto 37px auto;
-}
-
 .keys p {
     margin-bottom: 42px;
     font-family: Calibri, sans-serif;
     font-size: 15px;
     color: #3f495a;
 }
-
-.descr_left {
-    text-align: left;
-    margin: 8px 85px auto 375px;
-    float: left;
-}
-
-.keys h3 {
-    font-weight: bold;
-    font-size: 20px;
-    margin-bottom: 10px;
-    color: #384354;
-}
-
-.keys h4 {
-    font-weight: bold;
-    font-size: 20px;
-    margin-bottom: 10px;
-    color: #384354;
-}
-
-.descr_right {
-    margin: 45px 360px 10px 85px;
-    text-align: left;
-}
-
-.descr_left p {
-    margin-bottom: 10px;
-}
-
 .custom-btn {
     width: 200px;
     height: 45px;
@@ -606,32 +594,21 @@ nav {
 .custom-btn span:hover:after {
     width: 100%;
 }
-
-
-
-.calc {
-    height: 825px;
-    width: 100%;
-    float: left;
-}
-
 .calc h2 {
     margin-top: 100px;
     text-align: center;
-    font-size: 26px;
-    font-weight: bold;
+    font-size: 32px;
+    font-weight: 600;
     color: #384354;
 }
-
 .option,
 .option1 {
     text-align: left;
     margin: 50px auto 0px auto;
-    width: 890px;
 }
 
 .option.element-animation {
-    transform: translateX(200px);
+    transform: translateX(100px);
     opacity: 0;
 }
 
@@ -641,7 +618,7 @@ nav {
 }
 
 .option1.element-animation {
-    transform: translateX(-200px);
+    transform: translateX(-100px);
     opacity: 0;
 }
 
@@ -660,81 +637,89 @@ nav {
 
 .option select,
 .option1 select {
-    width: 890px;
+    width:100%;
     height: 60px;
     padding-left: 24px;
     color: #737373;
     background-color: #eeeeee;
     font-size: 16px;
 }
-
+.calc{
+    box-shadow: 0px 0px 30px rgba(0,0,0,0.2);
+    font-family: "Franklin Gothic Medium", sans-serif;
+    font-weight: 200;
+}
 .calc img {
+    width: auto;
     display: block;
     margin: 40px auto 0px auto;
 }
 
 .calc_footer {
-    width: 890px;
     margin: 30px auto 0px auto;
     font-size: 16px;
     font-weight: bold;
     color: #172437;
 }
-
 .param {
     text-align: left;
+    float: left;
 }
 
 .val {
     text-align: right;
     font-size: 18px;
 }
-
-.stat {
-    width: 100%;
-    height: 500px;
-    float: left;
-    text-align: center;
+.stat{
     background: url(../img/aoy1.png) center/3700px auto no-repeat;
     background-attachment: fixed;
+    font-family: "Franklin Gothic Medium", sans-serif;
 }
-
-.stat_container {
-    width: 1100px;
-    margin: auto;
-}
-
 .stat_container h2 {
     margin-top: 103px;
-    text-align: center;
-    font-size: 24px;
+    font-size: 32px;
     color: #263244;
-    font-weight: 600;
+    font-weight: 200;
 }
-
 .stat hr {
+    border: none;
+    opacity: 1;
     background: #ed7600;
     width: 70px;
     height: 4px;
     margin: 30px auto 40px auto;
 }
-
 .item {
     display: inline-block;
     width: 260px;
     margin: 0px;
     transition: all 0.1s;
 }
+.item img {
+    display: block;
+    margin: 0px auto 32px auto;
+    height: 50px;
+}
+.item h3 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #2b3652;
+}
 
-.item:nth-child(4) {
+.item h4 {
+    font-size: 16px;
+    font-weight: 200;
+    color: #2b3652;
+}
+.item:nth-child(2) {
     transition-delay: 0.1s;
 }
 
-.item:nth-child(5) {
+.item:nth-child(3) {
     transition-delay: 0.2s;
 }
 
-.item:nth-child(6) {
+.item:nth-child(4) {
     transition-delay: 0.3s;
 }
 
@@ -742,56 +727,29 @@ nav {
     transform: scale(1.2);
     transition: all 0.2s;
 }
-
-.item img {
-    display: block;
-    margin: 0px auto 32px auto;
-    height: 50px;
-}
-
-.item h3 {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 30px;
-    color: #2b3652;
-}
-
-.item h4 {
-    font-size: 14px;
-    font-weight: 600;
-    color: #2b3652;
-}
-
-.comms {
-    width: 850px;
-    height: 593px;
-    margin: auto;
-    text-align: center;
-    font-size: 15px;
-    color: #1b2d42;
-}
-
 .comms h2 {
     margin-top: 103px;
-    font-size: 24px;
+    font-size: 32px;
     color: #263244;
-    font-weight: 600;
+    font-weight: 200;
+    font-family: "Franklin Gothic Medium", sans-serif;
 }
-
 .comms hr {
+    border: none;
+    opacity: 1;
     background: #ed7600;
     width: 70px;
     height: 4px;
     margin: 30px auto 58px auto;
 }
-
 .comms img:hover {
     transition: all 0.2s;
     transform: scale(1.2);
 }
-
 .comms p {
-    margin-top: 40px;
+    font-family: Calibri, sans-serif;
+    font-size: 15px;
+    color: #1b2d42;
 }
 
 .dot {
@@ -801,32 +759,26 @@ nav {
 
 .comms span {
     font-weight: bold;
+    font-size: 15px;
+    color: #1b2d42;
 }
-
-.contacts {
-    height: 808px;
-    width: 100%;
-    background: url(../img/%D0%A4%D0%BE%D0%BD2.png);
-    float: left;
+.contacts{
+    background: url(../img/%D0%A4%D0%BE%D0%BD2.png) center/3500px;
 }
-
-.contacts_container {
-    text-align: center;
-    width: 860px;
-    height: 808px;
-    margin: auto;
-    color: #fff;
-
+.inf{
+    width:200px;
 }
-
 .contacts_container h2 {
-    margin-top: 105px;
-    font-size: 24px;
+    margin-top: 98px;
+    font-size: 32px;
     color: #fff;
-    font-weight: 600;
+    font-weight: 200;
+    font-family: "Franklin Gothic Medium", sans-serif;
 }
 
 .contacts_container hr {
+    border: none;
+    opacity: 1;
     background: #ed7600;
     width: 70px;
     height: 4px;
@@ -835,41 +787,32 @@ nav {
 
 .contacts_container p {
     margin-bottom: 50px;
-}
-
-.inf {
-    float: left;
-    width: 280px;
-    height: 110px;
-}
-
-.inf img {
-    margin-bottom: 17px;
+    color: #fff;
+    font-size: 13px;
+    font-family: Calibri, sans-serif;
 }
 
 .contacts_container h3 {
+    color: #fff;
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 45px;
+    font-family: "Franklin Gothic Medium", sans-serif;
+    font-weight: 200;
 }
-
+.cont_inputs input {
+    height: 35px;
+    padding-left: 10px;
+}
 .contacts_container textarea {
-    width: 740px;
     height: 94px;
     margin-bottom: 28px;
     padding: 10px 10px;
 }
-
 .contacts_container form {
-    width: 740px;
+    
     margin: auto;
     opacity: 0.8;
-}
-
-.cont_inputs input {
-    width: 353px;
-    height: 35px;
-    padding-left: 10px;
 }
 
 .contacts_container form .button {
@@ -883,7 +826,7 @@ nav {
     padding: 10px 10px;
     cursor: pointer;
     transition: all 0.2s;
-    position: relative;
+    position: relative; /*Чтобы наложить скрытую кнопку*/
     z-index: 2;
 }
 
@@ -892,44 +835,18 @@ nav {
     color: black;
 }
 
-.contacts_container form .button_hid {
-    width: 125px;
-    height: 46px;
-    background: none;
-    font-size: 15px;
-    color: #fff;
-    border: 3px solid #fff;
-    border-radius: 5px;
-    padding: 10px 10px;
-    cursor: pointer;
-    z-index: 1;
-    position: absolute;
-    top: 502px;
-    left: 368px;
-}
-
 .contacts_container form .button:active {
-    opacity: 0;
-}
-
-#name {
-    margin: 0px 30px 15px 0px;
-}
-
-footer {
-    text-align: center;
-    color: #fff;
-    height: 95px;
-    width: 100%;
-    background: #234052;
-    float: left;
-}
-
-footer p {
-    margin-top: 40px;
+    transform: scale(1.1);
 }
 
 .map img {
     width: 100%;
     height: auto;
+}
+footer {
+    font-family: Arial, sans-serif;
+    color: #fff;
+    height: 8%;
+    width: 100%;
+    background: #234052;
 }
