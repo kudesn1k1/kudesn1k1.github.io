@@ -57,7 +57,7 @@
             <div class="container h-100">
                 <div class="row align-items-center h-100">
                     <div class="col-lg-6 mt-5 pt-5">
-                        <div class="title mt-5">
+                        <div class="title element-animation mt-5">
                             <h1>Привет <br> Я Андрей Браун</h1>
                             <h4>Фулл стек веб-разработчик</h4>
                             <input type="button" value="Обо мне">
@@ -159,15 +159,15 @@
                 <div class="col-10">
                     <div class="option1 element-animation">
                         <h3>ТИП САЙТА</h3>
-                        <select name="type_of_site" id="1">
+                        <select name="type_of_site" id="type_of_site">
                             <option value="" selected disabled>Выберите пункт...</option>
-                            <option value="Site-card">Сайт-визитка</option>
-                            <option value="Corp site">Корпоративный сайт</option>
-                            <option value="Landing site">Лендинг-сайт</option>
-                            <option value="Thematic portal">Тематический портал</option>
-                            <option value="Blog">Блог</option>
-                            <option value="Online shop">Интернет-магазин</option>
-                            <option value="Internet showcase">Интернет-витрина</option>
+                            <option value="3000">Сайт-визитка</option>
+                            <option value="7000">Корпоративный сайт</option>
+                            <option value="5000">Лендинг-сайт</option>
+                            <option value="6000">Тематический портал</option>
+                            <option value="6000">Блог</option>
+                            <option value="7000">Интернет-магазин</option>
+                            <option value="5000">Интернет-витрина</option>
                         </select>
                     </div>
                 </div>
@@ -176,14 +176,14 @@
                 <div class="col-10">
                     <div class="option element-animation">
                         <h3>ДИЗАЙН</h3>
-                        <select name="design" id="2">
+                        <select name="design" id="design">
                             <option value="" selected disabled>Выберите пункт...</option>
-                            <option value="min">Минимализм</option>
-                            <option value="classic">Классический стиль</option>
-                            <option value="corp">Корпоративный стиль</option>
-                            <option value="ar-deco">Стиль Ар-Деко</option>
-                            <option value="retri">Ретро</option>
-                            <option value="hi-tech">HI_TECH</option>
+                            <option value="1500">Минимализм</option>
+                            <option value="2000">Классический стиль</option>
+                            <option value="2500">Корпоративный стиль</option>
+                            <option value="2500">Стиль Ар-Деко</option>
+                            <option value="2000">Ретро</option>
+                            <option value="2000">HI_TECH</option>
                         </select>
                     </div>
                 </div>
@@ -192,11 +192,11 @@
                 <div class="col-10">
                     <div class="option1 element-animation">
                         <h3>АДАПТИВНОСТЬ</h3>
-                        <select name="adaptivity" id="3">
+                        <select name="adaptivity" id="adaptivity">
                             <option value="" selected disabled>Выберите пункт...</option>
-                            <option value="Site-card">Адаптивный макет</option>
-                            <option value="Corp site">Отзывчивый макет</option>
-                            <option value="Landing site">Смешанный макет</option>
+                            <option value="1500">Фиксированная верстка</option>
+                            <option value="2000">Резиновая верстка</option>
+                            <option value="3000">Адаптивная верстка</option>
                         </select>
                     </div>
                 </div>
@@ -206,15 +206,35 @@
                     <hr>
                     <div class="calc_footer">
                         <p class="param">Сроки </p>
-                        <p class="val">0</p>
+                        <p class="val" id="time">0</p>
                         <p class="param">Стоимость </p>
-                        <p class="val">0</p>
+                        <p class="val" id="cost">0</p>
                     </div>
                 </div>
             </div>
             <div class="row justify-content-center">
                 <div class="col-lg-3 col-10 mt-2 mb-5 text-center">
-                    <button class="custom-btn"><span>Оставить заявку</span></button>
+                    <script>
+                        function ord() {
+                            let t = document.querySelector("#type_of_site");
+                            let type = t.value;
+                            console.log(type);
+
+                            let d = document.getElementById("design");
+                            let des = d.value;
+                            console.log(des);
+
+                            let a = document.getElementById("adaptivity");
+                            let adapt = a.value;
+                            console.log(adapt);
+                            
+                            document.getElementById("cost").innerHTML = Number(type)+Number(des)+Number(adapt) + " р.";
+                            
+                            document.getElementById("time").innerHTML = Math.trunc(Number(type)/1500+Number(des)/1500+Number(adapt)/1500) + " дней";
+                        }
+
+                    </script>
+                    <button class="custom-btn" id="order" onclick="ord()"><span>Оставить заявку</span></button>
                 </div>
             </div>
 
@@ -344,7 +364,7 @@
     <script src="js/load_script.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/scroll_script.js"></script>
-
+ 
 </body>
 
 </html>
