@@ -1,16 +1,35 @@
-function onEntry(entry) {
-  entry.forEach(change => {
-    if (change.isIntersecting) {
-     change.target.classList.add('element-show');
-    }
-  });
-}
+$(document).ready(function () {
 
-let options = {
-  threshold: [0.5] };
-let observer = new IntersectionObserver(onEntry, options);
-let elements = document.querySelectorAll('.element-animation');
+    $(window).scroll(function () {
+        let distance = $(window).scrollTop();
 
-for (let elm of elements) {
-  observer.observe(elm);
-}
+        $(".section").each(function (i, el) {
+            if (($(el).offset().top - $("nav").outerHeight()) <= distance) {
+
+                $("nav a").each(function (i, el) {
+                    if ($(el).hasClass("act")) {
+                        $(el).removeClass("act");
+                    }
+                });
+
+                $("nav li:eq(" + i + ")").find("a").addClass("act");
+            }
+        });
+    }); //Отображение текущей секции
+
+    $("nav a").click(function () {
+        let valRef = $(this).attr("href");
+        $("html,body").animate({
+            scrollTop: $(valRef).offset().top - 40 + "px"
+        });
+    }); //якорные ссылки
+
+
+
+    $('.image-link').magnificPopup({
+        type: 'image'
+    }); //modal images
+    setTimeout(function(){$("#exampleModal").modal("show");}, 10000)
+    
+
+});
