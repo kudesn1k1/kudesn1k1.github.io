@@ -28,7 +28,7 @@ $(document).ready(function () {
 	$('.image-link').magnificPopup({
 		type: 'image'
 	}); //modal images
-	setTimeout(function () { $("#exampleModal").modal("show"); }, 10000)
+	//setTimeout(function () { $("#exampleModal").modal("show"); }, 10000)
 
 	// $("#phone").mask("+7(999) 999-99-99");
 
@@ -54,15 +54,25 @@ $(document).ready(function () {
 
 	$("form").submit(function (event) {
 		event.preventDefault();
-		$.ajax({
-			type: "POST",
-			url: "php/mail.php",
-			data: $("this").serialize()
-		}).done(function () {
-			$("this").find("input").val('');
-			alert("Успешно отправлено!");
-			$("form").trigger("reset");
-		});
-		return false;
+		const regex = /^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/;
+		let val = $("#phone").val();
+		if (regex.test(val)) {
+			$("#phone").css("border", "none");
+			$.ajax({
+				type: "POST",
+				url: "php/mail.php",
+				data: $("this").serialize()
+			}).done(function () {
+				$("this").find("input").val('');
+				alert("Успешно отправлено!");
+				$("form").trigger("reset");
+			});
+		}
+		//return false;
+		else {
+			$("#phone").css("border", "2px solid rgb(255,0,0)");
+			alert("Пожалуйста, введите корректный номер телефона");
+		}
+
 	})
 })
