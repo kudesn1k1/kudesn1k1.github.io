@@ -50,7 +50,7 @@ $(document).ready(function () {
 	});
 
 
-	$(".cont").submit(function (event) {
+	$("form").submit(function (event) {
 		event.preventDefault();
 		const regex = /^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/;
 		let val = $("#phone").val();
