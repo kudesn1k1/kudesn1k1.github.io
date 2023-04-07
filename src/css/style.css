@@ -159,6 +159,10 @@ body {
 	font-family: "Franklin Gothic Medium", sans-serif;
 }
 
+.logo a {
+	color: #fff
+}
+
 nav {
 	width: 100%;
 	height: 60px;
@@ -325,7 +329,7 @@ main {
 
 	border-radius: 3px;
 	color: #0B1719;
-	font-size: 13px;
+	font-size: 15px;
 	margin: 50px 14px 0px 14px;
 	cursor: pointer;
 	transition: all 0.2s;
@@ -342,6 +346,107 @@ main {
 
 .dropdown a:visited {
 	color: #000;
+}
+
+.dropdown a:active {
+	background-color: #ccc;
+}
+
+.dropdown-item {
+	font-size: 1.2rem;
+}
+
+.dropdown-menu {
+	text-align: center;
+}
+
+
+.dropbtn {
+	/* background-color: rgb(43, 46, 53); */
+	background-color: transparent;
+	color: white;
+	font-size: 20px;
+	border: none;
+	cursor: pointer;
+	width: 65px;
+	border-radius: 5px;
+	height: 40px;
+	line-height: 20px;
+	border: 2px solid #fff;
+}
+
+/* Кнопка выпадающего меню при наведении и фокусировке */
+.dropbtn:hover,
+.dropbtn:active {
+	/*background-color: #2980B9;*/
+	background-color: rgb(103, 106, 113);
+}
+
+.dropbtn:active {
+	border-radius: 5px 5px 0 0;
+}
+
+.dropdown_lang {
+	display: inline-block;
+	/* margin-top: -5px; */
+	position: absolute;
+	right: 5%;
+	/* bottom: 5px; */
+}
+
+
+.dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: #f1f1f1;
+	/*min-width: 160px;*/
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	z-index: 15;
+	border-radius: 0 0 5px 5px;
+}
+
+/* Ссылки внутри выпадающего списка */
+.dropdown-content a {
+	color: black;
+	padding: 5px 10px;
+	text-decoration: none;
+	display: block;
+	width: 65px;
+	font-size: 17px;
+	text-align: center;
+	height: 40px;
+	line-height: 20px;
+}
+
+/* Изменение цвета выпадающих ссылок при наведении курсора */
+.dropdown-content a:visited {
+	color: #000;
+}
+
+.dropdown-content a:hover {
+	background-color: #ddd;
+	color: #f00;
+}
+
+/* Показать выпадающее меню (используйте JS, чтобы добавить этот класс .dropdown-content содержимого, когда пользователь нажимает на кнопку выпадающего списка) */
+.show_lang {
+	display: block;
+}
+
+@media(max-width:1200px) {
+	.dropdown_lang {
+		position: static;
+		margin-left: 56px;
+	}
+
+	.dropbtn {
+		display: inline-block;
+		width: 45px;
+	}
+
+	.dropdown-content a {
+		width: 50px;
+	}
 }
 
 @media(max-width:991px) {
@@ -367,7 +472,7 @@ main {
 		position: relative;
 	}
 
-	.title_section::after {
+	/* .title_section::after {
 		content: "";
 		position: absolute;
 		top: 0;
@@ -375,7 +480,7 @@ main {
 		bottom: 0;
 		left: 0;
 		background-color: rgba(0, 0, 0, 0.4);
-	}
+	} */
 }
 
 .about_me {
@@ -416,6 +521,7 @@ main {
 	font-family: Calibri, sans-serif;
 	font-size: 17px;
 	color: #ccc;
+	text-align: justify;
 }
 
 .about_me input {
@@ -568,6 +674,11 @@ main {
 	font-family: Calibri, sans-serif;
 	font-size: 17px;
 	color: #ccc;
+	text-align: justify;
+}
+
+.descr_left p {
+	text-align: center;
 }
 
 .custom-btn {
